@@ -24,5 +24,5 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    print Solution().reverse2(123)
-    print Solution().reverse2(-321)
+    print(Solution().reverse2(123))
+    print(Solution().reverse2(-321))
