@@ -6,7 +6,7 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        index = [x for x in range(len(nums))]
+        index = list(range(len(nums)))
         for i in index:
             for j in index:
                 if i < j and nums[i] + nums[j] == target:
@@ -26,4 +26,4 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    print(Solution().twoSum([2, 7, 11, 15], 22))
+    print(Solution().twoSum0([2, 7, 11, 15], 22))
