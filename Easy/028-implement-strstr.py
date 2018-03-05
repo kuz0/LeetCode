@@ -1,8 +1,9 @@
 # 字符串匹配的KMP算法
-# http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html
+# http://blog.csdn.net/v_july_v/article/details/7041827
 
 
 class Solution(object):
+
     def strStr(self, haystack, needle):
         """
         :type haystack: str
@@ -50,6 +51,7 @@ class Solution(object):
 
 
 class Solution2(object):
+
     def strStr(self, haystack, needle):
         """
         :type haystack: str
@@ -63,5 +65,5 @@ class Solution2(object):
 
 
 if __name__ == "__main__":
-    print(Solution().strStr("a", ""))
-    print(Solution().strStr("abababcdab", "ababcdx"))
+    print(Solution2().strStr("a", ""))
+    print(Solution2().strStr("abababcdab", "ababcdx"))
