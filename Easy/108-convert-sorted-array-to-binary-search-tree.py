@@ -1,46 +1,30 @@
-# Definition for a  binary tree node
-class TreeNode:
+# Definition for a binary tree node.
+class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
 
 
-class Solution:
-    # @param num, a list of integers
-    # @return a tree node
-    def sortedArrayToBST(self, num):
-        return self.sortedArrayToBSTRecu(num, 0, len(num))
-
-    @staticmethod
-    def perfect_tree_pivot(n):
+class Solution(object):
+    def sortedArrayToBST(self, nums):
         """
-        Find the point to partition n keys for a perfect binary search tree
+        :type nums: List[int]
+        :rtype: TreeNode
         """
-        # x = 1
-        # find a power of 2 <= n//2
-        # while x <= n//2:  # this loop could probably be written more elegantly :)
-        #     x *= 2
-        x = 1 << (n.bit_length() - 1)  # use the left bit shift, same as multiplying x by 2**n-1
-
-        if x // 2 - 1 <= (n - x):
-            return x - 1  # case 1: the left subtree of the root is perfect and the right subtree has less nodes
-        else:
-            return n - x // 2  # case 2 == n - (x//2 - 1) - 1 : the left subtree of the root
-            # has more nodes and the right subtree is perfect.
-
-    def sortedArrayToBSTRecu(self, num, start, end):
-        if start == end:
+        size = len(nums)
+        if size == 0:
             return None
-        mid = start + self.perfect_tree_pivot(end - start)
-        node = TreeNode(num[mid])
-        node.left = self.sortedArrayToBSTRecu(num, start, mid)
-        node.right = self.sortedArrayToBSTRecu(num, mid + 1, end)
-        return node
+        if size == 1:
+            return TreeNode(nums[0])
+        size //= 2
+        root = TreeNode(nums[size])
+        root.left = self.sortedArrayToBST(nums[:size])
+        root.right = self.sortedArrayToBST(nums[size + 1:])
+        return root
 
 
 if __name__ == "__main__":
-    # :(
     nums = [1, 2, 3]
     result = Solution().sortedArrayToBST(nums)
     print(result.val)
