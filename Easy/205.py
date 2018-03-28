@@ -5,6 +5,7 @@ class Solution:
         :type t: str
         :rtype: bool
         """
+        # zip()-returns a tuple where the i-th element comes from the i-th iterable argument
         return len(set(zip(s, t))) == len(set(s)) == len(set(t))
 
     def isIsomorphic1(self, s, t):
