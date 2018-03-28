@@ -5,7 +5,7 @@ class Solution:
         :type t: str
         :rtype: bool
         """
-        # zip()-returns a tuple where the i-th element comes from the i-th iterable argument
+        # zip()-用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表
         return len(set(zip(s, t))) == len(set(s)) == len(set(t))
 
     def isIsomorphic1(self, s, t):
